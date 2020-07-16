@@ -1,6 +1,6 @@
-package di.impl;
+package di_with_serviceLocator.impl;
 
-import di.UserService;
+import di_with_serviceLocator.UserService;
 
 public class CustomerService implements UserService {
 

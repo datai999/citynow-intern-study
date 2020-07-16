@@ -1,6 +1,6 @@
-import di.User;
-import di.impl.AdminService;
-import di.impl.CustomerService;
+import di_with_serviceLocator.User;
+import di_with_serviceLocator.impl.AdminService;
+import di_with_serviceLocator.impl.CustomerService;
 
 import java.util.Scanner;
 
@@ -14,7 +14,7 @@ public class MainClass {
 //        choose = 0;
         switch(choose) {
             case 0:
-                main.dependency_injection();
+                main.dependencyInjection_serviceLocator();
                 break;
             case 1:
                 // code block
@@ -24,7 +24,7 @@ public class MainClass {
         }
     }
 
-    private void dependency_injection(){
+    private void dependencyInjection_serviceLocator(){
 
         User user = new User();
 
