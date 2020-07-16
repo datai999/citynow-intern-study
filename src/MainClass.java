@@ -1,3 +1,7 @@
+import abstract_factory.AbstractFoodFactory;
+import abstract_factory.FoodFactory;
+import abstract_factory.TypeFactory;
+import abstract_factory.material.TypeMaterial;
 import di_with_serviceLocator.User;
 import di_with_serviceLocator.impl.AdminService;
 import di_with_serviceLocator.impl.CustomerService;
@@ -6,8 +10,6 @@ import factory.IDrink;
 import factory.TypeDrink;
 import singleton.EarlyServer;
 import singleton.LazyServer;
-
-import java.util.Scanner;
 
 public class MainClass {
 
@@ -21,7 +23,7 @@ public class MainClass {
         MainClass main = new MainClass();
         Study choose;
 //        choose = Study.values()[new Scanner(System.in).nextInt()];
-        choose = Study.factory;
+        choose = Study.abstractFactory;
         switch(choose) {
             default:
             case di_serviceLocator:
@@ -75,5 +77,18 @@ public class MainClass {
 
     private void abstractFactory(){
 
+        AbstractFoodFactory breadFactory = FoodFactory.getInstance().getFactory(TypeFactory.breadFactory);
+        AbstractFoodFactory riceFactory = FoodFactory.getInstance().getFactory(TypeFactory.riceFactory);
+
+        String breadEgg =  breadFactory.createFood(TypeMaterial.egg);
+        String breadMeat =  breadFactory.createFood(TypeMaterial.meat);
+
+        String riceEgg =  riceFactory.createFood(TypeMaterial.egg);
+        String riceMeat =  riceFactory.createFood(TypeMaterial.meat);
+
+        System.out.println(breadEgg);
+        System.out.println(breadMeat);
+        System.out.println(riceEgg);
+        System.out.println(riceMeat);
     }
 }

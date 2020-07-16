@@ -15,8 +15,8 @@ public class DrinkFactory {
         return LazyHolder.INSTANCE;
     }
 
-    public IDrink getDrink(TypeDrink name){
-        switch (name){
+    public IDrink getDrink(TypeDrink type){
+        switch (type){
             default:
             case Coca:
                 return new Coca();
