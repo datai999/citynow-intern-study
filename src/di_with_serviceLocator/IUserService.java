@@ -1,6 +1,6 @@
 package di_with_serviceLocator;
 
-public interface UserService {
+public interface IUserService {
 
     String iAm();
 

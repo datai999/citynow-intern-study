@@ -1,8 +1,8 @@
 package di_with_serviceLocator.impl;
 
-import di_with_serviceLocator.UserService;
+import di_with_serviceLocator.IUserService;
 
-public class CustomerService implements UserService {
+public class CustomerService implements IUserService {
 
 
     @Override

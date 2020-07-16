@@ -3,13 +3,13 @@ package di_with_serviceLocator;
 public class User {
 
     //    Service Locator
-    private UserService userService;
+    private IUserService IUserService;
 
-    public void setUserService(UserService userService){
-        this.userService = userService;
+    public void setIUserService(IUserService IUserService){
+        this.IUserService = IUserService;
     }
 
     public String whoAreYou(){
-        return this.userService.iAm();
+        return this.IUserService.iAm();
     }
 }
