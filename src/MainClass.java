@@ -2,6 +2,8 @@ import abstract_factory.AbstractFoodFactory;
 import abstract_factory.FoodFactory;
 import abstract_factory.TypeFactory;
 import abstract_factory.material.TypeMaterial;
+import builder.Laptop;
+import builder.LaptopBuilder;
 import di_with_serviceLocator.User;
 import di_with_serviceLocator.impl.AdminService;
 import di_with_serviceLocator.impl.CustomerService;
@@ -23,7 +25,7 @@ public class MainClass {
         MainClass main = new MainClass();
         Study choose;
 //        choose = Study.values()[new Scanner(System.in).nextInt()];
-        choose = Study.abstractFactory;
+        choose = Study.builder;
         switch(choose) {
             default:
             case di_serviceLocator:
@@ -39,6 +41,7 @@ public class MainClass {
                 main.abstractFactory();
                 break;
             case builder:
+                main.builder();
                 break;
         }
     }
@@ -90,5 +93,13 @@ public class MainClass {
         System.out.println(breadMeat);
         System.out.println(riceEgg);
         System.out.println(riceMeat);
+    }
+
+    private void builder(){
+        Laptop laptop1 = new LaptopBuilder().buildCpu("Intel core i9").buildRam("8GB").buildSsd("Samsung 128GB").build();
+        Laptop laptop2 = new LaptopBuilder().buildCpu("Intel core i5").buildRam("12GB").build();
+
+        System.out.println(laptop1);
+        System.out.println(laptop2);
     }
 }
