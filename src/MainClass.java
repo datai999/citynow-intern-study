@@ -12,11 +12,13 @@ import factory.IDrink;
 import factory.TypeDrink;
 import singleton.EarlyServer;
 import singleton.LazyServer;
+import thread.LuckySpinWithThread;
+import thread.LuckySprin;
 
 public class MainClass {
 
     private enum Study{
-        di_serviceLocator, singleton, factory, abstractFactory, builder
+        di_serviceLocator, singleton, factory, abstractFactory, builder, thread
     }
 
     public static void main(String[] args){
@@ -25,7 +27,7 @@ public class MainClass {
         MainClass main = new MainClass();
         Study choose;
 //        choose = Study.values()[new Scanner(System.in).nextInt()];
-        choose = Study.builder;
+        choose = Study.thread;
         switch(choose) {
             default:
             case di_serviceLocator:
@@ -42,6 +44,9 @@ public class MainClass {
                 break;
             case builder:
                 main.builder();
+                break;
+            case thread:
+                main.thread();
                 break;
         }
     }
@@ -101,5 +106,13 @@ public class MainClass {
 
         System.out.println(laptop1);
         System.out.println(laptop2);
+    }
+
+    private void thread(){
+        LuckySpinWithThread luckySpinWithThread = new LuckySpinWithThread();
+        LuckySprin luckySprin = new LuckySprin();
+
+        luckySpinWithThread.start();
+        luckySprin.run();
     }
 }
